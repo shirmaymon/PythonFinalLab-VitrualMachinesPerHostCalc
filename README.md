@@ -43,8 +43,6 @@ The project is highly modular to keep logic clean and manageable:
 This tool is currently a functional prototype with the following features still in the lab:
 
 * **The Math (Option 4)**: The core calculation logic for host capacity is currently a placeholder and does not yet perform resource-bottleneck analysis.
-* **User Mapping (Option 3, Sub-menu 4)**: The logic to link specific user populations to their respective machine types is marked as "TO BE CONTINUED".
-* **Data Persistence**: Data is stored in-memory; exiting the program will reset your entries.
 
 ---
 
