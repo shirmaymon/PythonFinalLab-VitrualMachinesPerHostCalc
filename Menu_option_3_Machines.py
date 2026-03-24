@@ -174,8 +174,8 @@ def Menu_option_3(Machines,Users):
                 print("\n#### Users Populations Info ####") 
                 for i in Users :
                     print(f"""
-    Users Population name : {i['name']}
-    Users count in this population : {i['count']}
+    Users Population name : {i['Name']}
+    Users count in this population : {i['Count']}
 
     """)
                 if not Machines : 
@@ -190,15 +190,15 @@ def Menu_option_3(Machines,Users):
                             if Users_types_count < 0 :
                                 print(f"Invalid number of users populations, please try again")
                             elif Users_types_count >=1 :
-                                # Users_set = {}
-                                # for u in range(Users_types_count) :
-                                #     Users_type = str(input(f"Enter {u+1}st users population -"))
-                                # >    if Users_type in Users['name'] :
-                                #         Users_set.add(Users_type)
-                                #         Machines[Machines_type]['Users'] = Users_set
-                                #     else :
-                                #         print("Users population not fount. please try again")
-                                print("TO BE CONTINUED")
+                                    Users_set = set()
+                                    for u in range(Users_types_count) :
+                                        Users_type = str(input(f"Enter {u+1}st users population - "))
+                                        for Users_pop in Users :
+                                            if Users_pop['Name'] == Users_type :
+                                                Users_set.add(Users_type)
+                                    if len(Users_set) > 0 :    
+                                        Machines[Machines_type]['Users'] = Users_set
+
                         except ValueError:
                             print("Invalid number of users populations, please try again")
                     else : 
@@ -209,12 +209,13 @@ def Menu_option_3(Machines,Users):
                 print("\n#### NEW Virtual Machines Types Info ####") 
                 for i in Machines :
                     i2 = Machines[i]
+                    user_pop_list = i2.get('Users', "No populations assigned")
                     print(f"""
     Type name : {i}
     CPU for this type - {i2['CPU']}
     Memory for this type - {i2['Memory']}
     Storage for this type - {i2['Storage']}
-
+    Users Populations for this type - {user_pop_list}
     """)
 
             else : 
