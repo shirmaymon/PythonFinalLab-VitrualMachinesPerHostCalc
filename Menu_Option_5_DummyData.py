@@ -16,8 +16,8 @@ def Menu_Option5(Hosts,Users,Machines):
     #     """
 
     Hosts = [{'Name': 'Esxi', 'CPU': 200, 'Memory': 1000, 'Storage': 3000, 'Count': 5}, {'Name': 'Dell', 'CPU': 400, 'Memory': 1600, 'Storage': 5000, 'Count': 10}, {'Name': 'Lenovo', 'CPU': 500, 'Memory': 2500, 'Storage': 9000, 'Count': 4}]
-    Users = [{'Name': 'OfficeUsers', 'Count': 1000}, {'Name': 'Developers', 'Count': 100}, {'Name': 'IT', 'Count': 35}]
-    Machines = {'Office': {'CPU': 4, 'Memory': 8, 'Storage': 80, 'Users': {'office'}}, 'Dev': {'CPU': 32, 'Memory': 64, 'Storage': 300, 'Users': {'dev'}}, 'IT': {'CPU': 8, 'Memory': 16, 'Storage': 150, 'Users': {'IT', 'mangers'}}}
+    Users = [{'Name': 'OfficeUsers', 'Count': 1000}, {'Name': 'Developers', 'Count': 100}, {'Name': 'IT', 'Count': 35},{'Name': 'Managers', 'Count': 50}]
+    Machines = {'Office': {'CPU': 4, 'Memory': 8, 'Storage': 80, 'Users': {'OfficeUsers'}}, 'Dev': {'CPU': 32, 'Memory': 64, 'Storage': 300, 'Users': {'Developers'}}, 'IT': {'CPU': 8, 'Memory': 16, 'Storage': 150, 'Users': {'IT', 'Managers'}}}
 
     print(f"""\n#### Physical Servers Info ####""")
     for i in Hosts :
