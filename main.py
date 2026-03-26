@@ -5,8 +5,9 @@ from Menu_User_massages import *
 from Menu_Option_1_Servers import *
 from Menu_option_2_Users import *
 from Menu_option_3_Machines import *
-
+from Menu_Option_4_Calcultaor import *
 from Menu_Option_5_DummyData import *
+from Menu_Option_6_ShowDelete import *
 
 
 #Define data structures
@@ -35,13 +36,14 @@ while In_manu:
           3 - Machine's Details
           4 - Calculate
           5 - Load Example Data
-          6 - Exit
+          6 - Show/Delete all Data
+          7 - Exit
 
 """)
     
     try : 
         User_choice = int(input("What do you want to do ? (enter number) "))
-        if User_choice == 6 :
+        if User_choice == 7 :
             print("Bye! See you next time\n")
             In_manu = False
         elif User_choice == 1 :
@@ -58,13 +60,20 @@ while In_manu:
 
         elif User_choice == 4 :
            Menu4()
+           Menu_Option4(Hosts,Users,Machines)
 
         elif User_choice == 5 :
             Menu5()
-            Menu_Option5(Hosts,Users,Machines)
+            # Menu_Option5(Hosts, Users, Machines)
+            Hosts, Users, Machines = Menu_Option5(Hosts, Users, Machines)
+        
+        elif User_choice == 6 :
+            Menu6()
+            # Menu_Option6(Hosts, Users, Machines)
+            Hosts, Users, Machines = Menu_Option6(Hosts, Users, Machines)
 
         else : 
-             print("\n***Notice! you entered an invalid option. Please Enter The number of the action you want to make (1-6 only)***")
+             print("\n***Notice! you entered an invalid option. Please Enter The number of the action you want to make (1-7 only)***")
 
     except ValueError :
-        print("\n***Notice! you entered an invalid option. Please Enter The number of the action you want to make (1-6 only)***")
+        print("\n***Notice! you entered an invalid option. Please Enter The number of the action you want to make (1-7 only)***")

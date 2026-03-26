@@ -44,9 +44,18 @@ def Menu4() :
 ***********************************************************************
                             Final Results
 *********************************************************************** 
+
+    ****** For each host - resources available for use are 80% of it's resources (rounded down) ******
+          
 """)
 
 def Menu5() :
     print(f"""
 Loading exaple data...... Please wait......
+""")
+
+def Menu6() :
+    print(f"""
+######### Show/Delete all Data #########
+please notice - deleting is not revertable
 """)

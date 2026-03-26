@@ -50,4 +50,4 @@ def Menu_Option5(Hosts,Users,Machines):
     Users Populations for this type - {user_pop_list}
     """)
 
-    return(Hosts,Users,Machines)
+    return Hosts,Users,Machines
