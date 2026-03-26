@@ -23,6 +23,7 @@ The project is highly modular to keep logic clean and manageable:
 | `Menu_option_3_Machines.py` | Handles the `Machines` dictionary. |
 | `Menu_Option_4_TheCalculator.py` | Makes the calcultaion based on the data. |
 | `Menu_Option_5_DummyData.py` | Provides pre-set testing data. |
+| `Menu_Option_6_ShowDelete.py` | Shows or deletes all data Hosts, Users and Machines |
 | `Menu_User_massages.py` | Stores all UI headers and instructional text. |
 
 ---
@@ -36,13 +37,6 @@ The project is highly modular to keep logic clean and manageable:
 5. **Calculate**: Use Option 4 to make the final calculation and get the results - which machines should be provsioned on which hosts.
 6. **Test**: Use Option 5 to auto-populate data if you want to skip manual entry.
 
----
-
-## 🚧 Status: Work in Progress
-
-This tool is currently a functional prototype with the following features still in the lab:
-
-* **The Math (Option 4)**: The core calculation logic for host capacity is currently a placeholder and does not yet perform resource-bottleneck analysis.
 
 ---
 
