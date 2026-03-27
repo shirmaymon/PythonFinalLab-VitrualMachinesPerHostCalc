@@ -64,12 +64,10 @@ while In_manu:
 
         elif User_choice == 5 :
             Menu5()
-            # Menu_Option5(Hosts, Users, Machines)
             Hosts, Users, Machines = Menu_Option5(Hosts, Users, Machines)
         
         elif User_choice == 6 :
             Menu6()
-            # Menu_Option6(Hosts, Users, Machines)
             Hosts, Users, Machines = Menu_Option6(Hosts, Users, Machines)
 
         else : 
