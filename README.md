@@ -44,3 +44,31 @@ The project is highly modular to keep logic clean and manageable:
 
 * **Case Sensitivity**: Please be careful! The system is **kEy SeNsiTive**. Ensure names match exactly when editing or deleting.
 * **Input Validation**: The script currently checks for basic value errors and negative numbers to prevent "impossible" hardware specs.
+
+
+---
+
+
+## 🗺️ Planned Features / Roadmap
+
+### 1. 💾 Export Results to File (CSV or JSON)
+After running the calculator, save the full allocation report to a file with a filename of your choice.
+Useful for sharing infrastructure plans with your team or keeping a record of capacity decisions.
+
+
+### 2. 🔍 Filter & Sort the Display View
+Add sub-menu options to filter and sort hosts, users, or machines before displaying them.
+Examples: sort hosts by total CPU (high→low), filter machines by RAM requirement above a threshold,
+or show only user groups with a count over a certain number.
+
+
+### 3. ⚠️ Capacity Gap Advisor
+After a calculation, instead of only reporting *how many* VMs couldn't be placed, show the user
+*exactly what kind of host* they would need to add to cover the gap — including the minimum CPU,
+RAM, and Storage specs required.
+
+
+### 4. 🔁 What-If Headroom Calculator
+A dedicated sub-option inside the Calculator menu: given the current hosts after allocation,
+calculate how many *additional* VMs of a selected type could still be squeezed in before
+any host runs out of resources.
