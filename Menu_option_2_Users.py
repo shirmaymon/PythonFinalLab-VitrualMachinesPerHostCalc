@@ -94,9 +94,11 @@ def Menu_option_2(Users):
                                         break
                                     else :
                                         Users.remove(i)
-                                        Users.append({"Name":Type_name,"Count":Count})                           
+                                        Users.append({"Name":Type_name,"Count":Count})
+                                        break
                                 except ValueError:
                                     print("Invalid parameters, please start over")
+                                    break
                     else : 
                         print("\nThe type name you entered to change doesn't exist. Re-enter and try again\n")
                     
