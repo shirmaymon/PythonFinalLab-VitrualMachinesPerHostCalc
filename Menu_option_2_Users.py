@@ -127,6 +127,7 @@ def Menu_option_2(Users):
                         if i['Name'] == Type_Delete :
                             Users.remove(i)
                             print(f"Removing {Type_Delete}... Please wait .... ")
+                            break
                 
                 print("\n#### NEW Users Populations Info ####") 
                 for i in Users :
