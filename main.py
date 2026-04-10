@@ -8,6 +8,7 @@ from Menu_option_3_Machines import *
 from Menu_Option_4_Calcultaor import *
 from Menu_Option_5_DummyData import *
 from Menu_Option_6_ShowDelete import *
+from Menu_Option_7_FilterData import *
 
 
 #Define data structures
@@ -37,13 +38,14 @@ while In_manu:
           4 - Calculate
           5 - Load Example Data
           6 - Show/Delete all Data
-          7 - Exit
+          7 - Filter & Sort Data
+          8 - Exit
 
 """)
     
     try : 
         User_choice = int(input("What do you want to do ? (enter number) "))
-        if User_choice == 7 :
+        if User_choice == 8 :
             print("Bye! See you next time\n")
             In_manu = False
         elif User_choice == 1 :
@@ -69,6 +71,10 @@ while In_manu:
         elif User_choice == 6 :
             Menu6()
             Hosts, Users, Machines = Menu_Option6(Hosts, Users, Machines)
+
+        elif User_choice == 7 :
+            Menu7()
+            Menu_Option7(Hosts, Users)
 
         else : 
              print("\n***Notice! you entered an invalid option. Please Enter The number of the action you want to make (1-7 only)***")
