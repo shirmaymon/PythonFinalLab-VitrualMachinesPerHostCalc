@@ -1,6 +1,7 @@
 
+#Module for option 7 in menu - Filter & Sort Data
 
-
+# That function receive Hosts , sort them by CPU value (low to high)and printing the list sorted
 def sort_host_by_cpu(Hosts):
 
     Sort = sorted(Hosts, key=lambda x: x['CPU'], reverse = True)
@@ -15,6 +16,7 @@ Storage of each physical server : {i['Storage']}
 physical server count in this type : {i['Count']}
 """)
 
+# That function receive Users list, filter the list by count of users (user input) and printing the filtered list
 def filter_users_by_count(Users):
      filter_list = []
      while True:
@@ -25,7 +27,7 @@ def filter_users_by_count(Users):
              print("Error: Negative value. Please enter only positive value")
         else:
              print("Invalid value. Please try again")
-
+     # Loop through Users list. If the value in the list bigger than the count the user insert, it will be add to filtered list
      for User in Users: 
           if User['Count'] >= count:
                filter_list.append(User)
@@ -47,7 +49,6 @@ def Menu_Option7(Hosts , Users):
         3 - Exit
         """)
 
-        
         user_choice = int(input("What do you want to do? (1-3): "))
         
         if user_choice == 3:
