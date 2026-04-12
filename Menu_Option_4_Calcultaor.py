@@ -1,5 +1,10 @@
 # #Module for option 4 in menu - calculate
 
+#matanmo - import os and datetime for the export
+import datetime
+import os
+
+
 def Menu_Option4(Hosts,Users,Machines):
 
 #     # #Docstring:
@@ -12,6 +17,10 @@ def Menu_Option4(Hosts,Users,Machines):
 #     #     Returns:
 #     #         prints calculation results as an inpormative summery
 #     #     """
+
+    #matanmo- init a print_list for the export function
+    #i make change to your code to make my implment
+    print_list = []
 
     #Add count to each machine type that sums up amount of machines based on users list
     for Machine_type in Machines :
@@ -83,27 +92,40 @@ def Menu_Option4(Hosts,Users,Machines):
         Name = Host['Name']
         Allocated_vms = Host_Dict[Name]
         
-        print(f"""******* {Name} *******
+        print_block = f"""******* {Name} *******
     Remaining Resources: CPU: {Host['CPU']} 
                         RAM: {Host['Memory']}GB
                         Storage: {Host['Storage']}GB
-    """)
+    """
+
+        print_list.append(print_block)
+        print(print_block)
 
         if Allocated_vms:
-            print(f" Allocated Machines:")
+            print_block = f" Allocated Machines:"
+            print_list.append(print_block)
+            print(print_block)
             for machine_type, count in Allocated_vms.items():
-                print(f"      {machine_type}: {count} machines")
+                print_block = f"      {machine_type}: {count} machines"
+                print_list.append(print_block)
+                print(print_block)
         else:
-            print(f" Allocated Machines: NONE")
+            print_block = f" Allocated Machines: NONE"
+            print_list.append(print_block)
+            print(print_block)
         
-        print("-" * 50)
+        print_block = "-" * 50
+        print_list.append(print_block)
+        print(print_block)
 
     #print if there is not enough resources in hosts
-    print(f"""
+    print_block = f"""
      ************************************************
                      Missing Resources
      ************************************************
-""")
+"""
+    print_list.append(print_block)
+    print(print_block)
 
     total_missing_cpu = 0
     total_missing_mem = 0
@@ -132,19 +154,50 @@ def Menu_Option4(Hosts,Users,Machines):
             total_missing_mem = total_missing_mem + mem_needed
             total_missing_strg = total_missing_strg + strg_needed
             
-            print(f"Notice: {missing_count} machines of type '{Machine_type}' could not be allocated.")
+            print_block = f"Notice: {missing_count} machines of type '{Machine_type}' could not be allocated."
+            print_list.append(print_block)
+            print(print_block)
 
     if missing_found == True:
-        print("TOTAL RESOURCES MISSING TO FIT ALL VMS:")
-        print(f"Total CPU needed:     {total_missing_cpu}")
-        print(f"Total Memory needed:  {total_missing_mem} GB")
-        print(f"Total Storage needed: {total_missing_strg} GB")
-        print("="*40)
+        print_block = f"""TOTAL RESOURCES MISSING TO FIT ALL VMS:
+Total CPU needed:     {total_missing_cpu}
+Total Memory needed:  {total_missing_mem} GB
+Total Storage needed: {total_missing_strg} GB
+{"="*40}
+"""
+        print_list.append(print_block)
+        print(print_block)
     else:
-        print("All machines were allocated successfully! No resources missing.")
+        print_block = "All machines were allocated successfully! No resources missing."
+        print_list.append(print_block)
+        print(print_block)
+        print_list.append("="*40)
         print("="*40)
 
-
+    #matanmo - call to export function
+    #matanmo - after first PR, add an question to user if he wnat to save the report
+    save_report = input("Do you want to save the report? (yes/no): ").lower()
+    if save_report == 'y' or save_report == 'yes':
+        export_result_to_file(print_list)
+    
+def export_result_to_file(print_list):
+        """
+        This function export print list to a new txt file with the calculator report
+        Parameters:
+            print_list (list): The list with the print that build the report
+        """
+        # for the reports, i make reports folder for the reports
+        folder_name = 'reports/' 
+        if not os.path.exists(folder_name):
+            os.makedirs(folder_name)
+        # make uniqe file name
+        file_name = 'CalcReport-{date:%Y-%m-%d_%H:%M:%S}.txt'.format(date=datetime.datetime.now())
+        file_path = os.path.join(folder_name, file_name) # the only way the path work for me
+        with open(file_path, 'w+') as file:
+            for print_block in print_list: # loop through every print block and write to the file with new line in end each print block
+                file.write(print_block+"\n")
+        print(f'SAVED! path to file:')
+        print(os.getcwd()+ '/' + file_path)
 
 
 
