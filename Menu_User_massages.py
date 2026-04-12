@@ -59,3 +59,9 @@ def Menu6() :
 ######### Show/Delete all Data #########
 please notice - deleting is not revertable
 """)
+    
+    
+def Menu7() :
+    print(f"""
+######### Filter & Sort Data #########
+""")
