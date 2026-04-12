@@ -175,7 +175,10 @@ Total Storage needed: {total_missing_strg} GB
         print("="*40)
 
     #matanmo - call to export function
-    export_result_to_file(print_list)
+    #matanmo - after first PR, add an question to user if he wnat to save the report
+    save_report = input("Do you want to save the report? (yes/no): ").lower()
+    if save_report == 'y' or save_report == 'yes':
+        export_result_to_file(print_list)
     
 def export_result_to_file(print_list):
         """
@@ -193,7 +196,8 @@ def export_result_to_file(print_list):
         with open(file_path, 'w+') as file:
             for print_block in print_list: # loop through every print block and write to the file with new line in end each print block
                 file.write(print_block+"\n")
-
+        print(f'SAVED! path to file:')
+        print(os.getcwd()+ '/' + file_path)
 
 
 
